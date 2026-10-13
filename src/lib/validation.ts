@@ -1,5 +1,12 @@
 import { z } from "zod";
 
+export const LoginFormValidation = z.object({
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
+});
+
+
+
 export const UserFormValidation = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(50, "Name must be at most 50 characters"),
   email: z.string().email("Invalid email address"),
@@ -7,9 +14,9 @@ export const UserFormValidation = z.object({
 });
 
 export const PatientFormValidation = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters").max(50, "Name must be at most 50 characters"),
+   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
-  phone: z.string().refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"),
+  phone: z.string().min(10, "Phone number must be at least 10 digits"),
   birthDate: z.coerce.date(),
   gender: z.enum(["male", "female", "other"]),
   address: z.string().min(5, "Address must be at least 5 characters").max(500, "Address must be at most 500 characters"),

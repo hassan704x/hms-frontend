@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+// next.config.ts
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: true,
+  compiler: {
+    reactRemoveProperties: process.env.NODE_ENV === 'production',
+  },
+  // Add other configurations here
 };
 
 export default nextConfig;

@@ -40,6 +40,8 @@ interface CustomFormFieldProps<T extends FieldValues = FieldValues> {
   iconAlt?: string;
   disabled?: boolean;
   children?: React.ReactNode;
+  type?: string; 
+   autoComplete?: string;
 }
 
 type RenderFieldProps<T extends FieldValues> = {
@@ -60,6 +62,7 @@ const RenderField = <T extends FieldValues>({
     children,
     name,
     label,
+    type = "text",
   } = props;
 
   switch (fieldType) {
@@ -79,6 +82,7 @@ const RenderField = <T extends FieldValues>({
             <Input
               placeholder={placeholder}
               disabled={disabled}
+              type={type} // Pass the type prop to Input
               {...field}
               className="flex-1 h-11 bg-dark-400 text-14-medium text-dark-700 border-0 placeholder:text-dark-600 focus-visible:ring-0 focus-visible:ring-offset-0"
             />

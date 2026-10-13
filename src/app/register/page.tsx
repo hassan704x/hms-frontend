@@ -33,8 +33,8 @@ const Register = async ({ params }: SearchParamProps) => {
             className="ml-10 mt-20 mb-12 h-10 w-fit"
           />
 
-          <RegisterForm user={resolvedParams.userId} />
-
+          <RegisterForm user={resolvedParams.userId} 
+          />
           <p className="copyright py-12">
             © 2024 CarePulse
           </p>

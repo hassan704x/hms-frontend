@@ -30,10 +30,11 @@ export default async function AppointmentPage({ params }: PageProps) {
             height={1000}
             width={1000}
             alt="logo"
-            className="mb-12 h-10 w-fit"
+            className="mb-12 h-10 w-fit "
           />
 
           <AppointmentForm
+          
             patientId={patient?.$id || ""}
             userId={resolvedParams.userId}
             type="create"
